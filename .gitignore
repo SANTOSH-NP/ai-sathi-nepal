@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.dart_tool/
+.packages
+
+# Build
+build/
+*.apk
+*.aab
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Firebase
+**/google-services.json
+**/GoogleService-Info.plist
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flutter
+flutter_app/.flutter-plugins
+flutter_app/.flutter-plugins-dependencies
+flutter_app/.dart_tool/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+
+# Generated
+*.g.dart
+*.freezed.dart
