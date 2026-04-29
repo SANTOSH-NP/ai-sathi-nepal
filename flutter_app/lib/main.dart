@@ -20,7 +20,7 @@ void main() async {
   // Catch all async errors
   PlatformDispatcher.instance.onError = (error, stack) {
     debugPrint('Uncaught error: $error');
-    return true;
+    return false;
   };
 
   // Initialize Firebase
