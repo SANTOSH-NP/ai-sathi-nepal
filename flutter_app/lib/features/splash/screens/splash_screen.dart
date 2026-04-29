@@ -39,21 +39,25 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   }
 
   Future<void> _navigateAfterDelay() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
 
-    final authState = ref.read(authStateProvider);
-    authState.when(
-      data: (user) {
-        if (user != null) {
-          context.go('/home');
-        } else {
-          context.go('/login');
-        }
-      },
-      loading: () => context.go('/login'),
-      error: (_, __) => context.go('/login'),
-    );
+    try {
+      final authState = ref.read(authStateProvider);
+      authState.when(
+        data: (user) {
+          if (user != null) {
+            context.go('/home');
+          } else {
+            context.go('/login');
+          }
+        },
+        loading: () => context.go('/login'),
+        error: (_, __) => context.go('/login'),
+      );
+    } catch (_) {
+      if (mounted) context.go('/login');
+    }
   }
 
   @override
@@ -95,16 +99,25 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
+                              color: Colors.black.withAlpha(51),
                               blurRadius: 20,
                               offset: const Offset(0, 10),
                             ),
                           ],
                         ),
-                        child: const Icon(
-                          Icons.auto_awesome,
-                          size: 64,
-                          color: AppColors.primary,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Image.asset(
+                            'assets/images/app_icon.png',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => const Icon(
+                              Icons.auto_awesome,
+                              size: 64,
+                              color: AppColors.primary,
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 24),
@@ -122,7 +135,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                         'Your AI Companion',
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white.withOpacity(0.8),
+                          color: Colors.white.withAlpha(204),
                           letterSpacing: 0.5,
                         ),
                       ),

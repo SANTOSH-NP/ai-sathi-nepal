@@ -88,7 +88,7 @@ class _SubscriptionScreenState extends ConsumerState<SubscriptionScreen> {
                   const SizedBox(height: 8),
                   Text(
                     'Unlock the full power of AI',
-                    style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+                    style: TextStyle(color: Colors.white.withAlpha(230), fontSize: 16),
                   ),
                 ],
               ),
@@ -112,7 +112,7 @@ class _SubscriptionScreenState extends ConsumerState<SubscriptionScreen> {
                 Switch(
                   value: _isYearly,
                   onChanged: (v) => setState(() => _isYearly = v),
-                  activeColor: AppColors.primary,
+                  activeTrackColor: AppColors.primary,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
