@@ -27,6 +27,12 @@ build/
 **/google-services.json
 **/GoogleService-Info.plist
 
+# Signing
+**/key.properties
+**/keystore/
+*.jks
+*.keystore
+
 # OS
 .DS_Store
 Thumbs.db

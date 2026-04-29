@@ -69,7 +69,7 @@ class _TranslateScreenState extends ConsumerState<TranslateScreen> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.1),
+                      color: AppColors.primary.withAlpha(26),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -91,7 +91,7 @@ class _TranslateScreenState extends ConsumerState<TranslateScreen> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.1),
+                      color: AppColors.primary.withAlpha(26),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(

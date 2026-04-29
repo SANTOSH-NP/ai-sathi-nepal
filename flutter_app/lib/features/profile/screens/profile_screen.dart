@@ -35,7 +35,7 @@ class ProfileScreen extends ConsumerWidget {
                 // Profile header
                 CircleAvatar(
                   radius: 50,
-                  backgroundColor: AppColors.primary.withOpacity(0.1),
+                  backgroundColor: AppColors.primary.withAlpha(26),
                   backgroundImage: userData.photoUrl != null
                       ? NetworkImage(userData.photoUrl!)
                       : null,
@@ -60,8 +60,8 @@ class ProfileScreen extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
                     color: userData.isPremium
-                        ? AppColors.premiumGold.withOpacity(0.1)
-                        : AppColors.primary.withOpacity(0.1),
+                        ? AppColors.premiumGold.withAlpha(26)
+                        : AppColors.primary.withAlpha(26),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -102,7 +102,7 @@ class ProfileScreen extends ConsumerWidget {
                                   ),
                                   Text(
                                     'Unlimited AI, No ads, Full access',
-                                    style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                                    style: TextStyle(color: Colors.white.withAlpha(204)),
                                   ),
                                 ],
                               ),

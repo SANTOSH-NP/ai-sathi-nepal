@@ -79,7 +79,7 @@ class _EmailGeneratorScreenState extends ConsumerState<EmailGeneratorScreen> {
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
-              value: _tone,
+              initialValue: _tone,
               decoration: const InputDecoration(labelText: 'Tone'),
               items: const [
                 DropdownMenuItem(value: 'professional', child: Text('Professional')),

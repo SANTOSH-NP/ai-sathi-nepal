@@ -89,7 +89,7 @@ class _JobMessageScreenState extends ConsumerState<JobMessageScreen> {
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
-              value: _type,
+              initialValue: _type,
               decoration: const InputDecoration(labelText: 'Message Type'),
               items: const [
                 DropdownMenuItem(value: 'cover_letter', child: Text('Cover Letter')),
