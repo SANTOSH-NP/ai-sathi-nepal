@@ -21,7 +21,7 @@ class AppTheme {
         backgroundColor: Colors.white,
         foregroundColor: AppColors.textPrimary,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
@@ -77,7 +77,7 @@ class AppTheme {
         brightness: Brightness.dark,
       ),
       textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),

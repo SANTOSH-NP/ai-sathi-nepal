@@ -30,8 +30,6 @@ class _SubscriptionScreenState extends ConsumerState<SubscriptionScreen> {
       });
 
       if (response.data['success']) {
-        final data = response.data['data'];
-
         switch (method) {
           case 'khalti':
             // Open Khalti payment URL
@@ -62,7 +60,7 @@ class _SubscriptionScreenState extends ConsumerState<SubscriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(userProvider);
+    ref.watch(userProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Premium Subscription')),

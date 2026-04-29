@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../core/theme/app_theme.dart';
@@ -16,10 +15,7 @@ class AISathiNepalApp extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
     final locale = ref.watch(localeProvider);
 
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      child: MaterialApp.router(
+    return MaterialApp.router(
         title: 'AI Sathi Nepal',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
@@ -37,7 +33,6 @@ class AISathiNepalApp extends ConsumerWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         routerConfig: router,
-      ),
     );
   }
 }

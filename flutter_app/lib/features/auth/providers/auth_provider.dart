@@ -2,8 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:dio/dio.dart';
-
 import '../../../core/models/user_model.dart';
 import '../../../core/network/api_client.dart';
 import '../../../core/constants/api_constants.dart';
@@ -30,7 +28,7 @@ class UserNotifier extends StateNotifier<AsyncValue<UserModel?>> {
         password: password,
       );
 
-      final idToken = await credential.user!.getIdToken();
+      await credential.user!.getIdToken();
       final dio = ref.read(dioProvider);
       final response = await dio.post(ApiConstants.login, data: {
         'email': email,
@@ -104,7 +102,7 @@ class UserNotifier extends StateNotifier<AsyncValue<UserModel?>> {
     state = const AsyncValue.loading();
     try {
       final credential = await FirebaseAuth.instance.signInAnonymously();
-      final idToken = await credential.user!.getIdToken();
+      await credential.user!.getIdToken();
 
       final dio = ref.read(dioProvider);
       final response = await dio.post(ApiConstants.guestAuth);
