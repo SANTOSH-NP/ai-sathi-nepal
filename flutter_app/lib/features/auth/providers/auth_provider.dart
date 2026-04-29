@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -7,7 +8,12 @@ import '../../../core/network/api_client.dart';
 import '../../../core/constants/api_constants.dart';
 
 final authStateProvider = StreamProvider<User?>((ref) {
-  return FirebaseAuth.instance.authStateChanges();
+  try {
+    return FirebaseAuth.instance.authStateChanges();
+  } catch (e) {
+    debugPrint('Firebase auth stream error: $e');
+    return Stream.value(null);
+  }
 });
 
 final userProvider = StateNotifierProvider<UserNotifier, AsyncValue<UserModel?>>((ref) {
@@ -126,8 +132,12 @@ class UserNotifier extends StateNotifier<AsyncValue<UserModel?>> {
   }
 
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
-    await GoogleSignIn().signOut();
+    try {
+      await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
+    } catch (e) {
+      debugPrint('Sign out error: $e');
+    }
     await _storage.deleteAll();
     state = const AsyncValue.data(null);
   }
